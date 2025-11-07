@@ -3,7 +3,7 @@
 
 ## 1. File Structures
 
-E:/UTS-PembelajaranMesin/
+UTS-PembelajaranMesin/
 ├── dataset
 │   └── online_gaming_behavior_dataset.csv
 ├── model_ensemble.pkl
