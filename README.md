@@ -76,8 +76,8 @@ streamlit run streamlit_app.py
    * Prediksi Ensemble Model
    * Visualisasi Total Engagement & Purchase Intensity
    * Histogram PlayTimeHours
-   * Scatter plot cluster (jika dataset tersedia)
-   * Confusion matrix (jika data test tersedia)
+   * Scatter plot cluster 
+   * Confusion matrix 
 
 ---
 
