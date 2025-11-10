@@ -1,8 +1,4 @@
-Baik, berikut versi **README.md tanpa emoji** dan sudah diformat **supaya tampil rapi di GitHub** (bisa langsung kamu copy–paste ke file `README.md` di proyekmu):
 
----
-
-```markdown
 # Prediksi Kecanduan Game Online
 
 ## 1. File Structures
