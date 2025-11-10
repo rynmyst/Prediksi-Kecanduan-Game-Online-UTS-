@@ -54,7 +54,7 @@ sedangkan langkah 4 berada di `streamlit_app.py`.
 ### A. Menjalankan Notebook
 1. Buka **VSCode** atau **Jupyter Notebook**.
 2. Jalankan file:
-   ```bash
+   ```
    main_final.ipynb
 ````
 
@@ -64,12 +64,12 @@ sedangkan langkah 4 berada di `streamlit_app.py`.
 
 1. Pastikan semua library sudah terinstal:
 
-   ```bash
+   ```
    pip install -r requirements.txt
    ```
 2. Jalankan Streamlit melalui terminal:
 
-   ```bash
+   ```
    python -m streamlit run streamlit_app.py
    ```
 3. Aplikasi akan terbuka otomatis di browser dengan alamat:
@@ -120,19 +120,7 @@ Dataset diperoleh dari Kaggle:
 
 ## 8. Pengembang
 
-Nama: Ryan Christian Aruan
-Proyek: UTS Pembelajaran Mesin – Tahun Ajaran 2025/2026
+Nama : Ryan Christian Aruan | Mhd Arya Azrial Banurea | Pindo Guido Munthe
+Proyek : UTS Pembelajaran Mesin 
 
----
 
-“Data bisa menipu, tetapi pola perilaku tidak pernah berbohong.”
-
-````
-
----
-
-### Petunjuk:
-- Simpan teks di atas ke dalam file `README.md`.
-- Pastikan bagian blok kode (yang diapit oleh ``` ) tidak dihapus.
-- Jika kamu buka di GitHub, tampilannya akan otomatis rapi seperti format folder dan tabel.
-````
