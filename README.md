@@ -1,131 +1,142 @@
+Baik, berikut versi **README.md tanpa emoji** dan sudah diformat **supaya tampil rapi di GitHub** (bisa langsung kamu copy–paste ke file `README.md` di proyekmu):
 
+---
+
+```markdown
 # Prediksi Kecanduan Game Online
 
 ## 1. File Structures
+```
 
-E:/UTS-PembelajaranMesin/
-├── dataset
+UTS-PembelajaranMesin/
+│
+├── dataset/
 │   └── online_gaming_behavior_dataset.csv
+│
 ├── model_ensemble.pkl
 ├── model_kmeans.pkl
 ├── preprocessing.pkl
-├── README.md
-├── streamlit_app.py
+│
 ├── main_final.ipynb
-└── requirements.txt
+├── streamlit_app.py
+├── requirements.txt
+└── README.md
 
+````
 
-## 2. Project Work Cycle
+---
+
+## 2. Alur Pengerjaan Proyek
 
 1. **Data Preprocessing**
-   - Mengumpulkan dataset perilaku pemain.
-   - Membersihkan dan menormalisasi data.
-   - Melakukan encoding untuk variabel kategori (`Gender`, `GameGenre`).
+   - Mengumpulkan dan membersihkan dataset perilaku pemain game.
+   - Normalisasi fitur numerik agar model tidak bias.
+   - Melakukan encoding pada variabel kategori seperti `Gender` dan `GameGenre`.
 
 2. **Exploratory Data Analysis (EDA)**
-   - Membuat visualisasi distribusi fitur seperti `PlayTimeHours`.
-   - Analisis pola perilaku pemain.
+   - Membuat histogram, heatmap, dan analisis korelasi antar fitur.
+   - Mengidentifikasi pola perilaku bermain berdasarkan waktu dan interaksi pemain.
 
 3. **Modeling**
-   - KMeans Clustering untuk mengelompokkan pemain berdasarkan perilaku bermain.
-   - Ensemble Model untuk prediksi kategori pemain: `Casual`, `Active`, `Potentially Addicted`.
-   - Feature Engineering: `Total Engagement` dan `Purchase Intensity`.
+   - Menggunakan algoritma **K-Means Clustering** untuk melakukan segmentasi pemain berdasarkan perilaku bermain.
+   - Menggabungkan **Decision Tree**, **Random Forest**, dan **Deep MLP** dalam model **Ensemble Learning**.
+   - Menambahkan fitur turunan seperti `TotalEngagement` dan `PurchaseIntensity` untuk memperkaya data.
 
-4. **Dashboard / Streamlit App**
-   - Input data pemain melalui form.
-   - Menampilkan hasil prediksi kategori dan cluster.
-   - Visualisasi fitur pemain.
-   - Histogram `PlayTimeHours` dan scatter plot cluster (opsional).
-   - Confusion matrix model ensemble (opsional).
+4. **Deployment (Dashboard Streamlit)**
+   - Input data pemain secara interaktif.
+   - Menampilkan hasil prediksi cluster dan kategori kecanduan.
+   - Visualisasi fitur pemain, histogram waktu bermain, dan confusion matrix.
 
-> **Catatan:** Langkah 1–3 dilakukan di `main_final.ipynb`, sedangkan langkah 4 berada di `streamlit_app.py`.
-
-
-## 3. Getting Started
-
-### a. `main_final.ipynb`
-1. Download proyek ini.
-2. Buka IDE favorit kamu (Jupyter Notebook / VSCode / Google Colab).
-3. Upload dan buka file `main_final.ipynb`.
-4. Jalankan seluruh cell untuk preprocessing, EDA, dan training model.
-5. Simpan model dengan `joblib`:  
-   - `model_ensemble.pkl`  
-   - `model_kmeans.pkl`  
-   - `preprocessing.pkl`
-
-### b. `streamlit_app.py`
-1. Download proyek ini.
-2. Pastikan Python 3.11+ terinstall.
-3. Install semua library yang dibutuhkan:
-
-```
-pip install -r requirements.txt
-```
-
-4. Pastikan file `.pkl` dan folder `dataset` tetap di lokasi yang sama, karena dibutuhkan aplikasi.
-
-5. Jalankan Streamlit:
-
-```
-streamlit run streamlit_app.py
-```
-
-6. Aplikasi akan terbuka di browser. Masukkan data pemain di form untuk melihat:
-
-   * Cluster KMeans
-   * Prediksi Ensemble Model
-   * Visualisasi Total Engagement & Purchase Intensity
-   * Histogram PlayTimeHours
-   * Scatter plot cluster (jika dataset tersedia)
-   * Confusion matrix (jika data test tersedia)
+Catatan:  
+Langkah 1–3 dilakukan di file `main_final.ipynb`,  
+sedangkan langkah 4 berada di `streamlit_app.py`.
 
 ---
 
-## 4. Variabel Penting
+## 3. Cara Menjalankan Proyek
 
-| Variabel                  | Deskripsi                                                                 |
-| ------------------------- | ------------------------------------------------------------------------- |
-| Age                       | Umur pemain (tahun)                                                       |
-| Gender                    | Jenis kelamin pemain (Male/Female)                                        |
-| GameGenre                 | Genre game favorit (Action, Strategy, RPG, Sports, Simulation)            |
-| PlayTimeHours             | Total jam bermain per minggu                                              |
-| SessionsPerWeek           | Jumlah sesi bermain per minggu                                            |
-| AvgSessionDurationMinutes | Rata-rata durasi tiap sesi bermain (menit)                                |
-| InGamePurchases           | Jumlah pembelian dalam game                                               |
-| Total Engagement          | Kombinasi `PlayTimeHours`, `SessionsPerWeek`, `AvgSessionDurationMinutes` |
-| Purchase Intensity        | `InGamePurchases` × `SessionsPerWeek`                                     |
+### A. Menjalankan Notebook
+1. Buka **VSCode** atau **Jupyter Notebook**.
+2. Jalankan file:
+   ```bash
+   main_final.ipynb
+````
 
-> **Catatan:** `PlayTimeHours` berkorelasi dengan `SessionsPerWeek` dan `AvgSessionDurationMinutes`, karena jam bermain total = jumlah sesi × durasi rata-rata.
+3. Tunggu proses training model selesai hingga file `.pkl` tersimpan otomatis.
+
+### B. Menjalankan Dashboard Streamlit
+
+1. Pastikan semua library sudah terinstal:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Jalankan Streamlit melalui terminal:
+
+   ```bash
+   python -m streamlit run streamlit_app.py
+   ```
+3. Aplikasi akan terbuka otomatis di browser dengan alamat:
+
+   ```
+   http://localhost:8501
+   ```
 
 ---
 
-## 5. Deployment & Demo
+## 4. Fitur Utama Aplikasi
 
-* **Local:** Jalankan Streamlit seperti di atas.
-* **Web/Cloud:** Bisa deploy di [Streamlit Cloud](https://streamlit.io/cloud) atau platform serupa.
-* **GitHub Repository:** Pastikan kode rapi, terdokumentasi, dan sertakan README ini.
+* Form input interaktif (usia, genre game, jam bermain, pembelian, dan lainnya)
+* Prediksi **kategori kecanduan**: `Casual`, `Active`, atau `Potentially Addicted`
+* Visualisasi interaktif:
+
+  * Histogram waktu bermain
+  * Scatter plot hasil clustering
+  * Confusion matrix dummy
 
 ---
 
-## 6. Contoh Input dan Output
+## 5. Teknologi yang Digunakan
 
-**Input:**
+| Komponen                | Teknologi                                                |
+| ----------------------- | -------------------------------------------------------- |
+| Bahasa Pemrograman      | Python 3.11.9                                            |
+| Framework Visualisasi   | Streamlit                                                |
+| Library Utama           | Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Joblib |
+| Lingkungan Pengembangan | Visual Studio Code (Jupyter Notebook Extension)          |
 
-* Age: 20
-* Gender: Male
-* GameGenre: Action
-* PlayTimeHours: 5
-* SessionsPerWeek: 2
-* AvgSessionDurationMinutes: 30
-* InGamePurchases: 0
+---
 
-**Output Prediksi:**
+## 6. Sumber Dataset
 
-* Cluster KMeans: Casual
-* Prediksi Ensemble Model: Casual
-* Total Engagement: 2.33
-* Purchase Intensity: 0
+Dataset diperoleh dari Kaggle:
+[Predict Online Gaming Behavior Dataset](https://www.kaggle.com/datasets/rabieelkharoua/predict-online-gaming-behavior-dataset)
 
-**Interpretasi:** Pemain ini memiliki jam bermain rendah dan sesi bermain jarang, sehingga dikategorikan sebagai pemain casual.
+---
 
+## 7. Hasil Model
 
+* Akurasi Ensemble Model: ±99.9%
+* Cross Validation: 99.94% ± 0.01
+* Kategori Output: Casual, Active, Potentially Addicted
+
+---
+
+## 8. Pengembang
+
+Nama: Ryan Christian Aruan
+Proyek: UTS Pembelajaran Mesin – Tahun Ajaran 2025/2026
+
+---
+
+“Data bisa menipu, tetapi pola perilaku tidak pernah berbohong.”
+
+````
+
+---
+
+### Petunjuk:
+- Simpan teks di atas ke dalam file `README.md`.
+- Pastikan bagian blok kode (yang diapit oleh ``` ) tidak dihapus.
+- Jika kamu buka di GitHub, tampilannya akan otomatis rapi seperti format folder dan tabel.
+````
